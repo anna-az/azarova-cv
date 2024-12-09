@@ -1,0 +1,73 @@
+name: anna_azarova_cv
+description: "A new Flutter project."
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.6
+  loader_overlay: ^4.0.3
+  bot_toast: ^4.1.3
+  flutter_svg: ^2.0.16
+  shared_preferences: ^2.3.3
+  dio: ^5.7.0
+  json_annotation: ^4.9.0
+  json_serializable: ^6.9.0
+  cupertino_icons: ^1.0.8
+  collection: ^1.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  import_sorter: ^4.6.0
+  build_runner: ^2.4.9
+  flutter_flavorizr: ^2.2.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+
+flavorizr:
+  flavors:
+    dev:
+      app:
+        name: "Azarova CV dev"
+        icon: "assets/images/logo-dev.png"
+
+      android:
+        applicationId: "dev.anna-azarova-cv.android"
+        # firebase:
+        #     config: '.firebase/dev/google-services.json'
+
+      ios:
+        bundleId: "dev.anna-azarova-cv.ios"
+        # firebase:
+        #     config: '.firebase/dev/GoogleService-Info.plist'
+
+    prod:
+      app:
+        name: "Azarova CV"
+        icon: "assets/images/logo.png"
+
+      android:
+        applicationId: "prod.anna-azarova-cv.android"
+        # firebase:
+        #     config: '.firebase/prod/google-services.json'
+      ios:
+        bundleId: "prod.anna-azarova-cv.android"
+        # firebase:
+        #     config: '.firebase/prod/GoogleService-Info.plist'
