@@ -10,6 +10,7 @@ import '../../../../../common/styles/insets.styles.dart';
 import '../../../../../common/styles/text.styles.dart';
 import '../../../../../common/widgets/icon/icon.widget.dart';
 import '../../../../../common/widgets/spacers/spacers.widget.dart';
+import '../../../../../common/theme/theme.extensions.dart';
 import 'contacts.controller.dart';
 
 class ContactsWidget extends GetView<ContactsController> {
@@ -30,7 +31,10 @@ class ContactsWidget extends GetView<ContactsController> {
           padding: EdgeInsets.only(bottom: Insets.xxl),
           child: Row(
             children: <Widget>[
-              IconWidget(imageAssets),
+              IconWidget(
+                imageAssets,
+                color: Get.context?.themeColors.primary,
+              ),
               HSpace.lg,
               Text(
                 title,
