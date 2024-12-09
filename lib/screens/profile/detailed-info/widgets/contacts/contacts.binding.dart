@@ -7,6 +7,6 @@ import 'contacts.controller.dart';
 class ContactsBinding implements Bindings {
   @override
   void dependencies() {
-    Get.put(ContactsController(Get.find()));
+    Get.put(ContactsController(Get.find(), Get.find()));
   }
 }

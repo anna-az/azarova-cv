@@ -1,3 +1,6 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:get/get.dart';
 
@@ -6,9 +9,22 @@ import 'detailed-info.service.dart';
 
 class DetailedInfoController extends GetxController {
   DetailedInfoController(DetailedInfoService detailedInfoService)
-      : isEdit = detailedInfoService.isEdit;
+      : isEdit = detailedInfoService.isEdit,
+        formKey = detailedInfoService.formKey;
 
   final RxBool isEdit;
-  void changeIsEdit() => isEdit.value = !isEdit.value;
+
+  final GlobalKey<FormState> formKey;
+
+  void changeIsEdit() {
+    if (isEdit.value &&
+        formKey.currentState != null &&
+        !formKey.currentState!.validate()) {
+      return;
+    }
+
+    isEdit.value = !isEdit.value;
+  }
+
   void onBackTap() => isEdit.value = false;
 }

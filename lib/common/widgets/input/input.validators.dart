@@ -12,4 +12,18 @@ extension InputValidators on String? {
     }
     return null;
   }
+
+  String? validateLessThan({int length = 13}) {
+    if (this != null && this!.length <= length) {
+      return '${InputValidationTranslationNames.minLength.tr} $length';
+    }
+    return null;
+  }
+
+  String? validateIsEmail({bool isRequired = true}) {
+    if (this != null && !GetUtils.isBlank(this)! && !GetUtils.isEmail(this!)) {
+      return InputValidationTranslationNames.correctEmail.tr;
+    }
+    return null;
+  }
 }

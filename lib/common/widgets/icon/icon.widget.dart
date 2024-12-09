@@ -8,13 +8,13 @@ import 'package:flutter_svg/svg.dart';
 import '../../base/image-asset.dart';
 
 class IconWidget extends StatelessWidget {
-  const IconWidget(this.imageAssets,
+  const IconWidget(this.imageAsset,
       {this.color,
       this.fit = BoxFit.contain,
       this.width,
       this.height,
       super.key});
-  final ImageAsset imageAssets;
+  final ImageAsset imageAsset;
   final Color? color;
   final double? width;
   final double? height;
@@ -22,7 +22,7 @@ class IconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-        imageAssets.path,
+        imageAsset.path,
         colorFilter:
             color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
         height: height,

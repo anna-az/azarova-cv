@@ -1,47 +1,50 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // Package imports:
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:get/get.dart';
 
 // Project imports:
 import '../../../../../common/base/image-asset.dart';
-import '../../../../../common/styles/insets.styles.dart';
 import '../../../../../common/styles/text.styles.dart';
-import '../../../../../common/widgets/icon/icon.widget.dart';
-import '../../../../../common/widgets/spacers/spacers.widget.dart';
-import '../../../../../common/theme/theme.extensions.dart';
+import '../../../../../common/widgets/input/input.validators.dart';
+import 'contacts-input/contacts-input.widget.dart';
 import 'contacts.controller.dart';
 
 class ContactsWidget extends GetView<ContactsController> {
   const ContactsWidget({super.key});
 
   @override
-  Widget build(BuildContext context) => Column(
-        children: <Widget>[
-          _buildTile('+380993211181', ImageAsset.phone),
-          _buildTile('azarova2828@gmail.com', ImageAsset.email),
-          _buildTile('Kyiv, Ukraine', ImageAsset.location),
-        ],
-      );
-
-  Widget _buildTile(String title, ImageAsset imageAssets) => InkWell(
-        onLongPress: () => controller.copyText(title),
-        child: Padding(
-          padding: EdgeInsets.only(bottom: Insets.xxl),
-          child: Row(
-            children: <Widget>[
-              IconWidget(
-                imageAssets,
-                color: Get.context?.themeColors.primary,
-              ),
-              HSpace.lg,
-              Text(
-                title,
-                style: const TextStyle().dark3.mediumSize.regularWeight,
-              )
-            ],
-          ),
+  Widget build(BuildContext context) => Form(
+        key: controller.formKey,
+        child: Column(
+          children: <Widget>[
+            ContactsInputWidget(controller.phoneController,
+                imageAsset: ImageAsset.phone,
+                copy: controller.onPhoneLongPress,
+                validator: (String? value) => value.validateLessThan(),
+                inputFormatters: <TextInputFormatter>[controller.maskFormatter],
+                keyboardType: TextInputType.number,
+                prefixIcon: SizedBox(
+                  child: CountryCodePicker(
+                      countryList: controller.countryCodes,
+                      flagWidth: 15,
+                      onChanged: controller.onCodeChanged,
+                      initialSelection: 'UA',
+                      textStyle:
+                          const TextStyle().dark5.mediumSize.regularWeight,
+                      showFlagDialog: false),
+                )),
+            ContactsInputWidget(
+              controller.emailController,
+              imageAsset: ImageAsset.email,
+              validator: (String? value) => value.validateIsEmail(),
+            ),
+            ContactsInputWidget(controller.locationController,
+                imageAsset: ImageAsset.location),
+          ],
         ),
       );
 }

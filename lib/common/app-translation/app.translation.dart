@@ -7,8 +7,9 @@ import '../../screens/languages/languages.translations.dart' as language;
 import '../../screens/profile/profile.translation.dart' as profile;
 import '../widgets/popups/popup.translation.dart' as popup;
 
-import '../../screens/profile/detailed-info/widgets/about/about.translation.dart'
-    as about;
+import '../../common/widgets/input/input-validation.translation.dart'
+    as input_validation;
+
 import '../../screens/profile/detailed-info/widgets/contacts/contacts.translation.dart'
     as contacts;
 import '../../screens/profile/detailed-info/widgets/skills/skills.translation.dart'
@@ -30,10 +31,10 @@ class AppTranslation extends GetxService {
   Map<String, Map<String, String>> combineAllTranslations() {
     _combineTranslations(language.en, language.uk);
     _combineTranslations(profile.en, profile.uk);
-    _combineTranslations(about.en, about.uk);
     _combineTranslations(contacts.en, contacts.uk);
     _combineTranslations(skills.en, skills.uk);
     _combineTranslations(settings.en, settings.uk);
+    _combineTranslations(input_validation.en, input_validation.uk);
     _combineTranslations(popup.en, popup.uk);
 
     return translationsKeys;

@@ -4,12 +4,11 @@ import 'package:get/get.dart';
 // Project imports:
 import '../../../../../common/dialog/dialog.model.dart';
 import '../../../../../common/dialog/dialog.service.dart';
-import '../../detailed-info.service.dart';
+import '../../detailed-info.controller.dart';
 import 'skills.translation.dart';
 
-class SkillsController extends GetxController {
-  SkillsController(DetailedInfoService detailedInfoService, this._dialogService)
-      : isEdit = detailedInfoService.isEdit;
+class SkillsController extends DetailedInfoController {
+  SkillsController(super.detailedInfoService, this._dialogService);
   final DialogService _dialogService;
   final RxList<String> skills = <String>[
     'Flutter',
@@ -41,10 +40,6 @@ class SkillsController extends GetxController {
     'Unit and widget tests',
     'Pusher',
   ].obs;
-
-  final RxBool isEdit;
-
-  void changeIsEdit() => isEdit.value = !isEdit.value;
 
   Future<void> deleteSkill(String skill) async {
     final bool confirm = await _dialogService.confirm(const DialogModel(

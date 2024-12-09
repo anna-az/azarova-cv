@@ -23,15 +23,18 @@ class SkillsWidget extends GetView<SkillsController> {
         child: Column(
           children: <Widget>[
             Obx(
-              () => Wrap(
-                children: <Widget>[
-                  ...controller.skills.map(_buildSkill),
-                  RxConditionalControlWidget(
-                    condition: controller.isEdit,
-                    child: _buildSkill('+', isAdd: true),
-                  )
-                ],
-              ),
+              () {
+                print('isEdit value: ${controller.isEdit.value}');
+                return Wrap(
+                  children: <Widget>[
+                    ...controller.skills.map(_buildSkill),
+                    RxConditionalControlWidget(
+                      condition: controller.isEdit,
+                      child: _buildSkill('+', isAdd: true),
+                    )
+                  ],
+                );
+              },
             ),
           ],
         ),
