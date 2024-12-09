@@ -1,6 +1,7 @@
 // Package imports:
 import 'package:get/get.dart';
 
+// Project imports:
 import 'contacts.controller.dart';
 
 class ContactsBinding implements Bindings {

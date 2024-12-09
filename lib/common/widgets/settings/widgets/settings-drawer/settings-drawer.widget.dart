@@ -7,13 +7,13 @@ import 'package:get/get.dart';
 // Project imports:
 import '../../../../app-translation/translation.extensions.dart';
 import '../../../../base/image-asset.dart';
+import '../../../../styles/insets.styles.dart';
 import '../../../divider/divider.widget.dart';
 import '../../../spacers/spacers.widget.dart';
-import '../../../../styles/insets.styles.dart';
-import '../settings-button/settings-button.widget.dart';
-import '../settings-header/settings-header.widget.dart';
 import '../../settings.controller.dart';
 import '../../settings.translations.dart';
+import '../settings-button/settings-button.widget.dart';
+import '../settings-header/settings-header.widget.dart';
 
 class SettingsDrawerWidget extends GetView<SettingsController> {
   const SettingsDrawerWidget({super.key});

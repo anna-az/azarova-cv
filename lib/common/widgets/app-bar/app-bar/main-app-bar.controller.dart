@@ -1,6 +1,7 @@
 // Package imports:
 import 'package:get/get.dart';
 
+// Project imports:
 import '../../settings/widgets/settings-drawer/settings-drawer.service.dart';
 
 class MainAppBarController extends GetxController {

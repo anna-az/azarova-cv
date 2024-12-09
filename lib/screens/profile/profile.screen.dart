@@ -1,6 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:get/get.dart';
 
+// Project imports:
 import '../../common/app-translation/translation.extensions.dart';
 import '../../common/base/image-asset.dart';
 import '../../common/base/routes.dart';
@@ -9,10 +13,10 @@ import '../../common/styles/text.styles.dart';
 import '../../common/widgets/app-bar/app-bar.widget.dart';
 import '../../common/widgets/spacers/spacers.widget.dart';
 import 'profile.controller.dart';
+import 'profile.translation.dart';
 import 'widgets/profile-image/profile-image.widget.dart';
 import 'widgets/profile-section/profile-section-tile/profile-section-tile.widget.dart';
 import 'widgets/profile-section/profile-section.widget.dart';
-import 'profile.translation.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
   const ProfileScreen({super.key});
@@ -54,9 +58,9 @@ class ProfileScreen extends GetView<ProfileController> {
             ProfileSectionWidget(
               children: <ProfileSectionTileWidget>[
                 ProfileSectionTileWidget(
-                  title: ProfileTranslationNames.skills.tr,
-                  icon: ImageAsset.skills,
-                ),
+                    title: ProfileTranslationNames.skills.tr,
+                    icon: ImageAsset.skills,
+                    onTap: () => controller.navigate(AppRoutes.skills)),
                 ProfileSectionTileWidget(
                   title: ProfileTranslationNames.languages.tr,
                   icon: ImageAsset.language,

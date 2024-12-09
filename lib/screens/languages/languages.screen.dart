@@ -6,25 +6,24 @@ import 'package:get/get.dart';
 
 // Project imports:
 import '../../common/app-translation/translation.extensions.dart';
+import '../../common/styles/insets.styles.dart';
+import '../../common/theme/theme.extensions.dart';
 import '../../common/widgets/app-bar/app-bar.widget.dart';
 import '../../common/widgets/button/button.widget.dart';
 import '../../common/widgets/divider/divider.widget.dart';
 import '../../common/widgets/spacers/spacers.widget.dart';
-import '../../common/styles/insets.styles.dart';
-import '../../common/theme/theme.extensions.dart';
+import 'languages.controller.dart';
+import 'languages.translations.dart';
 import 'widgets/language-button/language-button.widget.dart';
 import 'widgets/language-code/language-code.dart';
 import 'widgets/language-search/language-search.widget.dart';
-import 'languages.controller.dart';
-import 'languages.translations.dart';
 
 class LanguagesScreen extends GetView<LanguageController> {
   const LanguagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBarWidget(
-            title: LanguagesTranslationNames.language.tr, showMenu: false),
+        appBar: AppBarWidget(title: LanguagesTranslationNames.language.tr),
         body: Column(
           children: <Widget>[
             Padding(

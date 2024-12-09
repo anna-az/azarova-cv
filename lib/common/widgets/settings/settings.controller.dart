@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import '../../../screens/languages/widgets/language-code/language-code.dart';
 import '../../base/routes.dart';
 import '../../navigation/navigation.service.dart';
-import 'widgets/settings-drawer/settings-drawer.service.dart';
 import 'settings.service.dart';
+import 'widgets/settings-drawer/settings-drawer.service.dart';
 
 class SettingsController extends GetxController {
   SettingsController(SettingsService settingsService, this._navigationService,

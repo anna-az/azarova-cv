@@ -10,10 +10,11 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:get/get.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
+// Project imports:
 import 'common/app-translation/app.translation.dart';
 import 'common/base/routes.dart';
-import 'common/widgets/loader/loader.widget.dart';
 import 'common/theme/theme.helper.dart';
+import 'common/widgets/loader/loader.widget.dart';
 import 'common/widgets/settings/widgets/settings-drawer/settings-drawer.service.dart';
 import 'common/widgets/settings/widgets/settings-drawer/settings-drawer.widget.dart';
 import 'main.binding.dart';
@@ -47,7 +48,6 @@ class MyApp extends StatelessWidget {
               body: child,
             )),
       ),
-      defaultTransition: Transition.fadeIn,
       navigatorObservers: <NavigatorObserver>[BotToastNavigatorObserver()],
       debugShowCheckedModeBanner: false,
       theme: ThemeHelper.lightTheme,

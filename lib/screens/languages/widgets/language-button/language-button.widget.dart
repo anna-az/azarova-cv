@@ -6,12 +6,12 @@ import 'package:get/get.dart';
 
 // Project imports:
 import '../../../../common/base/image-asset.dart';
-import '../../../../common/widgets/icon/icon.widget.dart';
 import '../../../../common/styles/insets.styles.dart';
 import '../../../../common/styles/text.styles.dart';
 import '../../../../common/theme/theme.extensions.dart';
-import '../language-code/language-code.dart';
+import '../../../../common/widgets/icon/icon.widget.dart';
 import '../../languages.controller.dart';
+import '../language-code/language-code.dart';
 
 class LanguageButtonWidget extends GetView<LanguageController> {
   const LanguageButtonWidget({required this.language, super.key});

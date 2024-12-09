@@ -7,10 +7,10 @@ import 'package:get/get.dart';
 // Project imports:
 import '../../../../common/app-translation/translation.extensions.dart';
 import '../../../../common/base/image-asset.dart';
-import '../../../../common/widgets/icon/icon.widget.dart';
-import '../../../../common/widgets/input/input.widget.dart';
 import '../../../../common/styles/insets.styles.dart';
 import '../../../../common/theme/theme.extensions.dart';
+import '../../../../common/widgets/icon/icon.widget.dart';
+import '../../../../common/widgets/input/input.widget.dart';
 import '../../languages.controller.dart';
 import '../../languages.translations.dart';
 

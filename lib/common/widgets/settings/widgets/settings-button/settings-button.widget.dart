@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 
 // Project imports:
 import '../../../../base/image-asset.dart';
+import '../../../../styles/insets.styles.dart';
 import '../../../../styles/text.styles.dart';
+import '../../../../theme/theme.extensions.dart';
 import '../../../icon/icon.widget.dart';
 import '../../../spacers/spacers.widget.dart';
-import '../../../../styles/insets.styles.dart';
-import '../../../../theme/theme.extensions.dart';
 
 class SettingsButtonWidget extends StatelessWidget {
   const SettingsButtonWidget(

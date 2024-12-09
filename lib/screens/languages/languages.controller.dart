@@ -8,8 +8,8 @@ import 'package:get/get_rx/src/rx_workers/utils/debouncer.dart';
 // Project imports:
 import '../../common/navigation/navigation.service.dart';
 import '../../common/widgets/settings/settings.service.dart';
-import 'widgets/language-code/language-code.dart';
 import 'languages.service.dart';
+import 'widgets/language-code/language-code.dart';
 
 class LanguageController extends GetxController {
   LanguageController(this._languageService, this._navigationService,

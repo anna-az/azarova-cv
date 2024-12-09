@@ -1,6 +1,6 @@
 // Project imports:
-import '../../../common/app-translation/translation.extensions.dart';
-import '../../../common/map/map.extensions.dart';
+import '../../../../../common/app-translation/translation.extensions.dart';
+import '../../../../../common/map/map.extensions.dart';
 
 enum AboutTranslationNames implements Translation {
   title,

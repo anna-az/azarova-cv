@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 // Project imports:
 import 'common/app-translation/app.translation.dart';
+import 'common/dialog/dialog.service.dart';
 import 'common/navigation/navigation.service.dart';
 import 'common/shared-preferences/shared-preferences.service.dart';
 import 'common/widgets/app-bar/app-bar.controller.dart';
@@ -23,8 +24,8 @@ class MainBinding implements Bindings {
       ..lazyPut(LoaderController.new, fenix: true)
       ..lazyPut(() => AppBarController(Get.find(), Get.find()), fenix: true)
       ..lazyPut(LoaderService.new)
-      ..lazyPut(ToastService.new);
-    // ..lazyPut(DialogService.new)
+      ..lazyPut(ToastService.new)
+      ..lazyPut(DialogService.new);
     // ..lazyPut(() => ApiService(Get.find(), Get.find(), Get.find()));
   }
 }
