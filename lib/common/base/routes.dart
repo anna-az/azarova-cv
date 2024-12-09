@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import '../../screens/languages/languages.binding.dart';
 import '../../screens/languages/languages.screen.dart';
 import '../../screens/profile/about/about.screen.dart';
+import '../../screens/profile/contacts/contacts.binding.dart';
+import '../../screens/profile/contacts/contacts.screen.dart';
 import '../../screens/profile/profile.binding.dart';
 import '../../screens/profile/profile.screen.dart';
 
@@ -12,7 +14,8 @@ import '../../screens/profile/profile.screen.dart';
 enum AppRoutes {
   language('/language'),
   profile('/profile'),
-  about('/about');
+  about('/about'),
+  contacts('/contacts');
 
   const AppRoutes(this.url);
   final String url;
@@ -29,6 +32,10 @@ enum AppRoutes {
         children: <GetPage<dynamic>>[
           GetPage<void>(
               name: AppRoutes.about.url, page: () => const AboutScreen()),
+          GetPage<void>(
+              name: AppRoutes.contacts.url,
+              page: () => const ContactsScreen(),
+              binding: ContactsBinding()),
         ]),
   ];
 }

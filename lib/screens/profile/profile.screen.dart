@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../common/app-translation/translation.extensions.dart';
 import '../../common/base/image-asset.dart';
+import '../../common/base/routes.dart';
 import '../../common/styles/insets.styles.dart';
 import '../../common/styles/text.styles.dart';
 import '../../common/widgets/app-bar/app-bar.widget.dart';
@@ -40,11 +41,12 @@ class ProfileScreen extends GetView<ProfileController> {
                 ProfileSectionTileWidget(
                   title: ProfileTranslationNames.about.tr,
                   icon: ImageAsset.about,
-                  onTap: controller.onAboutTap,
+                  onTap: () => controller.navigate(AppRoutes.about),
                 ),
                 ProfileSectionTileWidget(
                   title: ProfileTranslationNames.contacts.tr,
                   icon: ImageAsset.contacts,
+                  onTap: () => controller.navigate(AppRoutes.contacts),
                 ),
               ],
             ),

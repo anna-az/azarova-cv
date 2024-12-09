@@ -7,8 +7,6 @@ class ProfileController extends GetxController {
   ProfileController(this._navigationService);
   final NavigationService _navigationService;
 
-  void onAboutTap() => _navigateChild(AppRoutes.about);
-
-  void _navigateChild(AppRoutes route) =>
+  void navigate(AppRoutes route) =>
       _navigationService.toChild(AppRoutes.profile, route);
 }

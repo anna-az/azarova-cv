@@ -13,6 +13,12 @@ enum ImageAsset {
   contacts('$_iconsFolder/contacts.svg'),
   work('$_iconsFolder/work.svg'),
   education('$_iconsFolder/education.svg'),
+  phone('$_iconsFolder/phone.svg'),
+  email('$_iconsFolder/email.svg'),
+  location('$_iconsFolder/location.svg'),
+  error('$_iconsFolder/error.svg'),
+  success('$_iconsFolder/success.svg'),
+  cross('$_iconsFolder/cross.svg'),
 
   logo('$_imagesFolder/logo.png'),
   logoDev('$_imagesFolder/logo-dev.png');

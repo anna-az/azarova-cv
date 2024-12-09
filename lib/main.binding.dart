@@ -9,6 +9,7 @@ import 'common/widgets/app-bar/app-bar.controller.dart';
 import 'common/widgets/loader/loader.controller.dart';
 import 'common/widgets/loader/loader.service.dart';
 import 'common/widgets/settings/widgets/settings-drawer/settings-drawer.service.dart';
+import 'common/widgets/toast/toast.service.dart';
 
 class MainBinding implements Bindings {
   @override
@@ -21,8 +22,8 @@ class MainBinding implements Bindings {
       ..lazyPut(NavigationService.new)
       ..lazyPut(LoaderController.new, fenix: true)
       ..lazyPut(() => AppBarController(Get.find(), Get.find()), fenix: true)
-      ..lazyPut(LoaderService.new);
-    // ..lazyPut(ToastService.new)
+      ..lazyPut(LoaderService.new)
+      ..lazyPut(ToastService.new);
     // ..lazyPut(DialogService.new)
     // ..lazyPut(() => ApiService(Get.find(), Get.find(), Get.find()));
   }
