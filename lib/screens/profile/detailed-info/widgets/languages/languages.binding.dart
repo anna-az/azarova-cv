@@ -7,9 +7,9 @@ import 'languages.service.dart';
 
 class LanguagesBinding implements Bindings {
   @override
-  Future<void> dependencies() async {
+  void dependencies() {
     Get
       ..lazyPut(() => LanguagesService(Get.find()))
-      ..put(LanguageController(Get.find(), Get.find(), Get.find()));
+      ..put(LanguagesController(Get.find(), Get.find()));
   }
 }

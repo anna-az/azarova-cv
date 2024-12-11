@@ -20,6 +20,7 @@ enum ImageAsset {
   success('$_iconsFolder/success.svg'),
   cross('$_iconsFolder/cross.svg'),
   edit('$_iconsFolder/edit.svg'),
+  dropdownArrow('$_iconsFolder/dropdown-arrow.svg'),
 
   logo('$_imagesFolder/logo.png'),
   logoDev('$_imagesFolder/logo-dev.png');

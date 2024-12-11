@@ -10,10 +10,10 @@ import '../../../../common/styles/insets.styles.dart';
 import '../../../../common/styles/text.styles.dart';
 import '../../../../common/theme/theme.extensions.dart';
 import '../../../../common/widgets/icon/icon.widget.dart';
-import '../../languages.controller.dart';
+import '../../app-languages.controller.dart';
 import '../language-code/language-code.dart';
 
-class LanguageButtonWidget extends GetView<LanguageController> {
+class LanguageButtonWidget extends GetView<AppLanguageController> {
   const LanguageButtonWidget({required this.language, super.key});
   final LanguageCode language;
 

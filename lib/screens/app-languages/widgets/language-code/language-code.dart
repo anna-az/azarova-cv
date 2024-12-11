@@ -1,16 +1,16 @@
 // Project imports:
 import '../../../../common/app-translation/translation.extensions.dart';
-import '../../languages.translations.dart';
+import '../../app-languages.translations.dart';
 
 enum LanguageCode {
-  us('us', 'English', LanguagesTranslationNames.en),
-  uk('uk', 'Українська', LanguagesTranslationNames.uk);
+  us('us', 'English', AppLanguagesTranslationNames.en),
+  uk('uk', 'Українська', AppLanguagesTranslationNames.uk);
 
   const LanguageCode(this.code, this.title, this.translationKey);
 
   final String code;
   final String title;
-  final LanguagesTranslationNames translationKey;
+  final AppLanguagesTranslationNames translationKey;
 
   static final Map<String, LanguageCode> _languageCodeMap =
       <String, LanguageCode>{

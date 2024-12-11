@@ -6,7 +6,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 
 // Project imports:
-import '../../../screens/languages/widgets/language-code/language-code.dart';
+import '../../../screens/app-languages/widgets/language-code/language-code.dart';
 import '../../shared-preferences/shared-preferences.constants.dart';
 import '../../shared-preferences/shared-preferences.service.dart';
 import '../../theme/theme.helper.dart';

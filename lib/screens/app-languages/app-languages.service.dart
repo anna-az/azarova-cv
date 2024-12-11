@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import '../../common/widgets/settings/settings.service.dart';
 import 'widgets/language-code/language-code.dart';
 
-class LanguagesService extends GetxService {
-  LanguagesService(this._settingsService);
+class AppLanguagesService extends GetxService {
+  AppLanguagesService(this._settingsService);
   final SettingsService _settingsService;
 
   final List<LanguageCode> allLanguages = <LanguageCode>[

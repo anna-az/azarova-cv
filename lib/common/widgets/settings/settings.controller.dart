@@ -2,7 +2,7 @@
 import 'package:get/get.dart';
 
 // Project imports:
-import '../../../screens/languages/widgets/language-code/language-code.dart';
+import '../../../screens/app-languages/widgets/language-code/language-code.dart';
 import '../../base/routes.dart';
 import '../../navigation/navigation.service.dart';
 import 'settings.service.dart';
@@ -21,7 +21,7 @@ class SettingsController extends GetxController {
 
   void openLanguagesScreen() {
     closeDrawer();
-    _navigationService.to(AppRoutes.language);
+    _navigationService.to(AppRoutes.appLanguage);
   }
 
   void setTheme() => isDarkTheme.value = !isDarkTheme.value;

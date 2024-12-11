@@ -11,17 +11,17 @@ import '../../../../common/styles/insets.styles.dart';
 import '../../../../common/theme/theme.extensions.dart';
 import '../../../../common/widgets/icon/icon.widget.dart';
 import '../../../../common/widgets/input/input.widget.dart';
-import '../../languages.controller.dart';
-import '../../languages.translations.dart';
+import '../../app-languages.controller.dart';
+import '../../app-languages.translations.dart';
 
-class LanguageSearchWidget extends GetView<LanguageController> {
+class LanguageSearchWidget extends GetView<AppLanguageController> {
   const LanguageSearchWidget({super.key});
 
   @override
   Widget build(BuildContext context) => InputWidget(
       textEditingController: controller.languageController,
       onChanged: controller.onSearchChange,
-      hint: LanguagesTranslationNames.search.tr,
+      hint: AppLanguagesTranslationNames.search.tr,
       suffixIcon: InkWell(
         onTap: controller.search,
         child: Container(

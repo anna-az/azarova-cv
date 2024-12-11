@@ -8,17 +8,22 @@ import 'package:get/get_rx/src/rx_workers/utils/debouncer.dart';
 // Project imports:
 import '../../common/navigation/navigation.service.dart';
 import '../../common/widgets/settings/settings.service.dart';
-import 'languages.service.dart';
+import 'app-languages.service.dart';
 import 'widgets/language-code/language-code.dart';
 
-class LanguageController extends GetxController {
-  LanguageController(this._languageService, this._navigationService,
+class AppLanguageController extends GetxController {
+  AppLanguageController(this._languageService, this._navigationService,
       SettingsService settingsService)
       : languages = <LanguageCode>[..._languageService.allLanguages].obs,
         selectedLanguage =
             Rx<LanguageCode>(settingsService.selectedLanguage.value);
-  final LanguagesService _languageService;
+  final AppLanguagesService _languageService;
   final NavigationService _navigationService;
+
+  final List<LanguageCode> allLanguages = <LanguageCode>[
+    LanguageCode.us,
+    LanguageCode.uk,
+  ];
 
   final Debouncer _searchDebouncer =
       Debouncer(delay: const Duration(milliseconds: 300));

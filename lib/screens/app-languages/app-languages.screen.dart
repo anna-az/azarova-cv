@@ -12,18 +12,18 @@ import '../../common/widgets/app-bar/app-bar.widget.dart';
 import '../../common/widgets/button/button.widget.dart';
 import '../../common/widgets/divider/divider.widget.dart';
 import '../../common/widgets/spacers/spacers.widget.dart';
-import 'languages.controller.dart';
-import 'languages.translations.dart';
+import 'app-languages.controller.dart';
+import 'app-languages.translations.dart';
 import 'widgets/language-button/language-button.widget.dart';
 import 'widgets/language-code/language-code.dart';
 import 'widgets/language-search/language-search.widget.dart';
 
-class LanguagesScreen extends GetView<LanguageController> {
-  const LanguagesScreen({super.key});
+class AppLanguagesScreen extends GetView<AppLanguageController> {
+  const AppLanguagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBarWidget(title: LanguagesTranslationNames.language.tr),
+        appBar: AppBarWidget(title: AppLanguagesTranslationNames.language.tr),
         body: Column(
           children: <Widget>[
             Padding(
@@ -49,11 +49,11 @@ class LanguagesScreen extends GetView<LanguageController> {
               child: Row(
                 children: <Widget>[
                   ButtonWidget(
-                      title: LanguagesTranslationNames.save.tr,
+                      title: AppLanguagesTranslationNames.save.tr,
                       onTap: controller.onSaveTap),
                   HSpace.xs,
                   ButtonWidget(
-                      title: LanguagesTranslationNames.cancel.tr,
+                      title: AppLanguagesTranslationNames.cancel.tr,
                       onTap: controller.onCancelTap,
                       color: context.themeColors.white,
                       borderColor: context.themeColors.blue,
