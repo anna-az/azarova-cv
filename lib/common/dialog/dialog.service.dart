@@ -22,5 +22,5 @@ class DialogService extends GetxService {
     return text;
   }
 
-  Future<void> showBottomDialog(Widget child) => Get.bottomSheet(child);
+  Future<T?> showBottomDialog<T>(Widget child) => Get.bottomSheet(child);
 }

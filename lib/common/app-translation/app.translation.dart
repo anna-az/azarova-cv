@@ -17,6 +17,10 @@ import '../../screens/profile/detailed-info/widgets/contacts/contacts.translatio
     as contacts;
 import '../../screens/profile/detailed-info/widgets/skills/skills.translation.dart'
     as skills;
+import '../../screens/profile/detailed-info/widgets/apps/apps.translation.dart'
+    as apps;
+import '../../screens/profile/detailed-info/widgets/apps/edit-app-popup/edit-app-popup.translation.dart'
+    as edit_app;
 
 class AppTranslation extends GetxService {
   Map<String, Map<String, String>> translationsKeys =
@@ -40,7 +44,8 @@ class AppTranslation extends GetxService {
     _combineTranslations(settings.en, settings.uk);
     _combineTranslations(input_validation.en, input_validation.uk);
     _combineTranslations(popup.en, popup.uk);
-
+    _combineTranslations(apps.en, apps.uk);
+    _combineTranslations(edit_app.en, edit_app.uk);
     return translationsKeys;
   }
 }

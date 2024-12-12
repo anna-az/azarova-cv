@@ -4,9 +4,13 @@ import 'package:get/get.dart';
 // Project imports:
 import '../../screens/app-languages/app-languages.binding.dart';
 import '../../screens/app-languages/app-languages.screen.dart';
-import '../../screens/profile/detailed-info/deteiled-info.screen.dart';
+import '../../screens/profile/detailed-info/detailed-info.screen.dart';
 import '../../screens/profile/detailed-info/widgets/about/about.binding.dart';
 import '../../screens/profile/detailed-info/widgets/about/about.widget.dart';
+import '../../screens/profile/detailed-info/widgets/apps/apps.binding.dart';
+import '../../screens/profile/detailed-info/widgets/apps/apps.widget.dart';
+import '../../screens/profile/detailed-info/widgets/apps/store-webview/store-webview.binding.dart';
+import '../../screens/profile/detailed-info/widgets/apps/store-webview/store-webview.screen.dart';
 import '../../screens/profile/detailed-info/widgets/contacts/contacts.binding.dart';
 import '../../screens/profile/detailed-info/widgets/contacts/contacts.widget.dart';
 import '../../screens/profile/detailed-info/widgets/languages/languages.binding.dart';
@@ -21,11 +25,13 @@ import '../../screens/profile/profile.translation.dart';
 
 enum AppRoutes {
   appLanguage('/app-language'),
+  webview('/webview'),
   profile('/profile'),
   about('/about'),
   contacts('/contacts'),
   skills('/skills'),
-  languages('/languages');
+  languages('/languages'),
+  stores('/stores');
 
   const AppRoutes(this.url);
   final String url;
@@ -35,6 +41,10 @@ enum AppRoutes {
         name: AppRoutes.appLanguage.url,
         page: () => const AppLanguagesScreen(),
         binding: AppLanguagesBinding()),
+    GetPage<void>(
+        name: AppRoutes.webview.url,
+        page: () => const StoreWebviewScreen(),
+        binding: StoreWebviewBinding()),
     GetPage<void>(
         name: AppRoutes.profile.url,
         page: () => const ProfileScreen(),
@@ -63,6 +73,11 @@ enum AppRoutes {
                   title: ProfileTranslationNames.languages,
                   child: LanguagesWidget()),
               binding: LanguagesBinding()),
+          GetPage<void>(
+              name: AppRoutes.stores.url,
+              page: () => const DetailedInfoScreen(
+                  title: ProfileTranslationNames.stores, child: AppsWidget()),
+              binding: AppsBinding()),
         ]),
   ];
 }

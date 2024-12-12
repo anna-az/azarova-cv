@@ -1,6 +1,6 @@
 name: anna_azarova_cv
 description: "A new Flutter project."
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -22,6 +22,7 @@ dependencies:
   collection: ^1.18.0
   mask_text_input_formatter: ^2.9.0
   country_code_picker: ^3.1.0
+  webview_flutter: ^4.10.0
 
 dev_dependencies:
   flutter_test:
@@ -51,12 +52,12 @@ flavorizr:
         icon: "assets/images/logo-dev.png"
 
       android:
-        applicationId: "dev.anna-azarova-cv.android"
+        applicationId: "dev.azarova_cv.android"
         # firebase:
         #     config: '.firebase/dev/google-services.json'
 
       ios:
-        bundleId: "dev.anna-azarova-cv.ios"
+        bundleId: "dev.azarova_cv.ios"
         # firebase:
         #     config: '.firebase/dev/GoogleService-Info.plist'
 
@@ -66,10 +67,10 @@ flavorizr:
         icon: "assets/images/logo.png"
 
       android:
-        applicationId: "prod.anna-azarova-cv.android"
+        applicationId: "prod.azarova_cv.android"
         # firebase:
         #     config: '.firebase/prod/google-services.json'
       ios:
-        bundleId: "prod.anna-azarova-cv.android"
+        bundleId: "prod.azarova_cv.ios"
         # firebase:
         #     config: '.firebase/prod/GoogleService-Info.plist'

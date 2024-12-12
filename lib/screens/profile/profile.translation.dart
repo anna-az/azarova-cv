@@ -10,7 +10,7 @@ enum ProfileTranslationNames implements Translation {
   title,
   skills,
   languages,
-  apps,
+  stores,
   work,
   education,
 }
@@ -23,7 +23,7 @@ final Map<String, String> en = <ProfileTranslationNames, String>{
   ProfileTranslationNames.title: 'Profile',
   ProfileTranslationNames.skills: 'Skills',
   ProfileTranslationNames.languages: 'Languages',
-  ProfileTranslationNames.apps: 'Apps in stores',
+  ProfileTranslationNames.stores: 'Apps in stores',
   ProfileTranslationNames.work: 'Professional experience',
   ProfileTranslationNames.education: 'Education',
 }.st;
@@ -36,7 +36,7 @@ final Map<String, String> uk = <ProfileTranslationNames, String>{
   ProfileTranslationNames.title: 'Профайл',
   ProfileTranslationNames.skills: 'Навички',
   ProfileTranslationNames.languages: 'Мови',
-  ProfileTranslationNames.apps: 'Додатки в магазинах',
+  ProfileTranslationNames.stores: 'Додатки в магазинах',
   ProfileTranslationNames.work: 'Професійний досвід',
   ProfileTranslationNames.education: 'Освіта',
 }.st;

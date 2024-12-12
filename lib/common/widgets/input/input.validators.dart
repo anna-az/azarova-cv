@@ -26,4 +26,26 @@ extension InputValidators on String? {
     }
     return null;
   }
+
+  String? validateIsGooglePlayId({bool isRequired = true}) {
+    if (this != null && !GetUtils.isBlank(this)!) {
+      final RegExp regex =
+          RegExp(r'^[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+$');
+      if (!regex.hasMatch(this!)) {
+        return InputValidationTranslationNames.googlePlay.tr;
+      }
+    }
+    return null;
+  }
+
+  String? validateIsAppStoreURL({bool isRequired = true}) {
+    if (this != null && !GetUtils.isBlank(this)!) {
+      final RegExp regex = RegExp(r'^[a-zA-Z0-9\-]+\/id\d{10}$');
+
+      if (!regex.hasMatch(this!)) {
+        return InputValidationTranslationNames.appStore.tr;
+      }
+    }
+    return null;
+  }
 }
