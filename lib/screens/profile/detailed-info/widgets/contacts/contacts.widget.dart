@@ -32,7 +32,7 @@ class ContactsWidget extends GetView<ContactsController> {
                       countryList: controller.countryCodes,
                       flagWidth: 15,
                       onChanged: controller.onCodeChanged,
-                      initialSelection: 'UA',
+                      initialSelection: controller.countryCode,
                       textStyle:
                           const TextStyle().dark5.mediumSize.regularWeight,
                       showFlagDialog: false),

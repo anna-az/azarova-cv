@@ -5,14 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // Project imports:
+import '../profile.model.dart';
 import 'detailed-info.service.dart';
 
 class DetailedInfoController extends GetxController {
   DetailedInfoController(DetailedInfoService detailedInfoService)
       : isEdit = detailedInfoService.isEdit,
-        formKey = detailedInfoService.formKey;
+        formKey = detailedInfoService.formKey,
+        user = detailedInfoService.user;
 
   final RxBool isEdit;
+  final ProfileModel user;
 
   final GlobalKey<FormState> formKey;
 

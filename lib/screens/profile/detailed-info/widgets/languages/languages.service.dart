@@ -1,4 +1,6 @@
 // Project imports:
+
+// Project imports:
 import '../../../../../common/api/api-service-base.dart';
 
 class LanguagesService extends ApiServiceBase {
@@ -6,6 +8,8 @@ class LanguagesService extends ApiServiceBase {
 
   @override
   final String prefix = 'v3.1';
+
+  List<String> allLanguages = <String>[];
 
   Future<List<String>> getLanguages() async {
     apiService.setBaseUrl('https://restcountries.com');

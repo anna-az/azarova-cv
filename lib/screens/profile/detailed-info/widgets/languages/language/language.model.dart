@@ -8,4 +8,9 @@ class LanguageModel {
   });
   String language;
   LanguageLevel level;
+
+  LanguageModel copy() => LanguageModel(
+        language: language,
+        level: level,
+      );
 }

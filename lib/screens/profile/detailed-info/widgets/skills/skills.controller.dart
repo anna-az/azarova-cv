@@ -10,36 +10,13 @@ import 'skills.translation.dart';
 class SkillsController extends DetailedInfoController {
   SkillsController(super.detailedInfoService, this._dialogService);
   final DialogService _dialogService;
-  final RxList<String> skills = <String>[
-    'Flutter',
-    'Dart',
-    'Redux',
-    'Getx',
-    'BloC',
-    'REST API',
-    'Git',
-    'OOP',
-    'SOLID',
-    'DRY',
-    'Clean Architecture',
-    'GitHub',
-    'Azure DevOps',
-    'Github Actions',
-    'Azure Pipelines',
-    'Firebase Dynamic Links',
-    'Firebase Notifications',
-    'Firebase App Distribution',
-    'Firebase Crashlytics',
-    'Firebase  Analytics',
-    'Google Play',
-    'App Store',
-    'TestFlight',
-    'Google Play Console',
-    'XCode',
-    'Android Studio',
-    'Unit and widget tests',
-    'Pusher',
-  ].obs;
+  final RxList<String> skills = <String>[].obs;
+
+  @override
+  void onInit() {
+    skills.value = user.skills.map((String skill) => skill).toList();
+    super.onInit();
+  }
 
   Future<void> deleteSkill(String skill) async {
     final bool confirm = await _dialogService.confirm(const DialogModel(

@@ -19,13 +19,12 @@ class ContactsController extends DetailedInfoController {
   List<Map<String, String>> countryCodes = <Map<String, String>>[];
 
   String code = '+38';
+  String countryCode = 'UA';
 
-  final TextEditingController phoneController =
-      TextEditingController(text: '(099) 321-1181');
-  final TextEditingController emailController =
-      TextEditingController(text: 'azarova2828@gmail.com');
+  final TextEditingController phoneController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController locationController =
-      TextEditingController(text: 'Kyiv, Ukraine');
+      TextEditingController(text: '');
 
   final MaskTextInputFormatter maskFormatter = MaskTextInputFormatter(
       initialText: '(099) 321-1181',
@@ -34,6 +33,10 @@ class ContactsController extends DetailedInfoController {
 
   @override
   void onInit() {
+    phoneController.text = user.contacts.phone.phone;
+    emailController.text = user.contacts.email;
+    locationController.text = user.contacts.location;
+    countryCode = user.contacts.phone.countyCode;
     countryCodes = <Map<String, String>>[
       ...const CountryCodePicker().countryList.map(Map<String, String>.from),
     ];
@@ -47,6 +50,7 @@ class ContactsController extends DetailedInfoController {
 
   void onCodeChanged(CountryCode countryCode) {
     code = countryCode.dialCode ?? '+38';
+    code = countryCode.code ?? 'UA';
   }
 
   void onPhoneLongPress() {

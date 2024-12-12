@@ -16,14 +16,13 @@ class AppsController extends DetailedInfoController {
   final NavigationService _navigationService;
   final DialogService _dialogService;
 
-  final RxList<AppModel> apps = <AppModel>[
-    AppModel(title: 'Swoop', appStoreUrl: 'swoop-social-dining/id1565197231'),
-    AppModel(
-        title: 'Tribe',
-        appStoreUrl: 'tribe-sport-fitness-app/id6458219258',
-        googlePlayId: 'prod.tribe.android'),
-    AppModel(title: 'Advenium Kiosk', googlePlayId: 'prod.advenium.com'),
-  ].obs;
+  final RxList<AppModel> apps = <AppModel>[].obs;
+
+  @override
+  void onInit() {
+    apps.value = user.apps;
+    super.onInit();
+  }
 
   void openStore(String title, String url, Store store) {
     _navigationService.to(AppRoutes.webview,

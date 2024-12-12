@@ -16,6 +16,6 @@ class ProfileBinding implements Bindings {
       ..put(SettingsController(Get.find(), Get.find(), Get.find()))
       ..lazyPut(ProfileService.new)
       ..put(ProfileController(Get.find()))
-      ..lazyPut(DetailedInfoService.new);
+      ..lazyPut(() => DetailedInfoService(Get.find()));
   }
 }
