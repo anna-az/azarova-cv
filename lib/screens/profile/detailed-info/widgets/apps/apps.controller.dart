@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:async';
+
 // Package imports:
 import 'package:get/get.dart';
 
@@ -19,10 +22,9 @@ class AppsController extends DetailedInfoController {
   final RxList<AppModel> apps = <AppModel>[].obs;
 
   @override
-  void onInit() {
-    apps.value = user.apps;
-    super.onInit();
-  }
+  void saveData() => user.apps = apps;
+  @override
+  void initData() => apps.value = user.apps;
 
   void openStore(String title, String url, Store store) {
     _navigationService.to(AppRoutes.webview,

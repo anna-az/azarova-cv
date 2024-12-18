@@ -50,6 +50,7 @@ class ContactsInputWidget extends GetView<ContactsController> {
                 enabled: controller.isEdit.value,
                 inputFormatters: inputFormatters,
                 keyboardType: TextInputType.number,
+                isRequired: true,
                 prefixIcon: prefixIcon,
                 validator: validator,
                 icon: IconWidget(

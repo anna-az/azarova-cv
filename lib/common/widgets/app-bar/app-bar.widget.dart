@@ -45,7 +45,10 @@ class AppBarWidget extends GetView<AppBarController>
 
   Widget _buildBackButton() => InkWell(
         onTap: () {
-          onBackTap?.call();
+          if (onBackTap != null) {
+            onBackTap!.call();
+            return;
+          }
           controller.onBackTap();
         },
         child: IconWidget(

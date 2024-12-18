@@ -13,9 +13,11 @@ class SkillsController extends DetailedInfoController {
   final RxList<String> skills = <String>[].obs;
 
   @override
-  void onInit() {
+  void saveData() => user.skills = skills;
+
+  @override
+  void initData() {
     skills.value = user.skills.map((String skill) => skill).toList();
-    super.onInit();
   }
 
   Future<void> deleteSkill(String skill) async {

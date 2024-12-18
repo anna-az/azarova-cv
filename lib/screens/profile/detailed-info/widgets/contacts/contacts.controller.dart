@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:async';
+
 // Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -11,12 +14,15 @@ import '../../../../../common/app-translation/translation.extensions.dart';
 import '../../../../../common/widgets/toast/toast.service.dart';
 import '../../detailed-info.controller.dart';
 import 'contacts.translation.dart';
+import 'phone/phone.model.dart';
 
 class ContactsController extends DetailedInfoController {
   ContactsController(super.detailedInfoService, this._toastService);
   final ToastService _toastService;
 
-  List<Map<String, String>> countryCodes = <Map<String, String>>[];
+  final List<Map<String, String>> countryCodes = <Map<String, String>>[
+    ...const CountryCodePicker().countryList.map(Map<String, String>.from),
+  ];
 
   String code = '+38';
   String countryCode = 'UA';
@@ -26,26 +32,35 @@ class ContactsController extends DetailedInfoController {
   final TextEditingController locationController =
       TextEditingController(text: '');
 
-  final MaskTextInputFormatter maskFormatter = MaskTextInputFormatter(
-      initialText: '(099) 321-1181',
+  late MaskTextInputFormatter maskFormatter = MaskTextInputFormatter(
+      initialText: user.contacts.phone.phone,
       mask: '(###) ###-####',
       filter: <String, RegExp>{'#': RegExp(r'[0-9]')});
 
   @override
   void onInit() {
-    phoneController.text = user.contacts.phone.phone;
+    final Map<String, String> ukraineCode = countryCodes
+        .firstWhere((Map<String, String> item) => item['code'] == 'UA');
+    ukraineCode['dial_code'] = '+38';
+    super.onInit();
+  }
+
+  @override
+  void saveData() {
+    maskFormatter.formatEditUpdate(
+        phoneController.value, phoneController.value);
+    user.contacts.phone =
+        PhoneModel(phone: maskFormatter.getUnmaskedText(), countyCode: code);
+    user.contacts.email = emailController.text;
+    user.contacts.location = locationController.text;
+  }
+
+  @override
+  void initData() {
+    phoneController.text = maskFormatter.maskText(user.contacts.phone.phone);
     emailController.text = user.contacts.email;
     locationController.text = user.contacts.location;
     countryCode = user.contacts.phone.countyCode;
-    countryCodes = <Map<String, String>>[
-      ...const CountryCodePicker().countryList.map(Map<String, String>.from),
-    ];
-
-    final Map<String, String> ukraineCode = countryCodes
-        .firstWhere((Map<String, String> item) => item['code'] == 'UA');
-    ukraineCode['dial_code'] = code;
-
-    super.onInit();
   }
 
   void onCodeChanged(CountryCode countryCode) {

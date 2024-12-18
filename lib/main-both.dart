@@ -13,6 +13,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 // Project imports:
 import 'common/app-translation/app.translation.dart';
 import 'common/base/routes.dart';
+import 'common/color/color.extension.dart';
 import 'common/theme/theme.helper.dart';
 import 'common/widgets/loader/loader.widget.dart';
 import 'common/widgets/settings/widgets/settings-drawer/settings-drawer.service.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) => BotToastInit()(
         context,
         LoaderOverlay(
-            overlayColor: Colors.black.withOpacity(0.5),
+            overlayColor: Colors.black.setOpacity(0.5),
             overlayWidgetBuilder: (_) => const Center(child: LoaderWidget()),
             child: Scaffold(
               key: settingsDrawerService.scaffoldKey,

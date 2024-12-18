@@ -17,7 +17,7 @@ class ProfileService extends GetxService {
       about:
           'I am a responsible and goal-oriented Flutter Developer with strong self-learning and quick learning abilities. My logical thinking and effective communication skills help me tackle complex challenges and collaborate efficiently within a team. As a team player, I thrive in dynamic environments and am always eager to expand my knowledge and contribute to project success.',
       contacts: ContactsModel(
-          phone: PhoneModel(phone: '(099) 321-1181', countyCode: 'UA'),
+          phone: PhoneModel(phone: '0993211181', countyCode: 'UA'),
           email: 'azarova2828@gmail.com',
           location: 'Kyiv, Ukraine'),
       skills: <String>[

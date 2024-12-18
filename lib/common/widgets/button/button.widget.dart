@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import '../../color/color.extension.dart';
 import '../../styles/insets.styles.dart';
 import '../../styles/text.styles.dart';
 import '../../theme/theme.extensions.dart';
@@ -35,7 +36,7 @@ class ButtonWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: Insets.xxl),
           decoration: BoxDecoration(
               color: (color ?? context.themeColors.primary)
-                  .withOpacity(enabled ? 1 : 0.3),
+                  .setOpacity(enabled ? 1 : 0.3),
               border: Border.all(
                   color: borderColor ?? color ?? context.themeColors.primary),
               borderRadius: BorderRadius.circular(14)),

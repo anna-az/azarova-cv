@@ -56,7 +56,7 @@ class SettingsButtonWidget extends StatelessWidget {
                   () => CupertinoSwitch(
                       value: switcherChange!.value,
                       onChanged: switcherChange!.call,
-                      activeColor: context.themeColors.primary),
+                      activeTrackColor: context.themeColors.primary),
                 ),
             ],
           ),

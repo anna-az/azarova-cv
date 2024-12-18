@@ -29,7 +29,6 @@ class ToastService extends GetxService {
       case _NotifyType.error:
         icon = ImageAsset.error;
         break;
-      default:
     }
     BotToast.showCustomNotification(
         toastBuilder: (void Function() cancelFunc) => Container(

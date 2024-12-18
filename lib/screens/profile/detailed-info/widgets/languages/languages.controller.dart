@@ -17,12 +17,23 @@ class LanguagesController extends DetailedInfoController {
 
   @override
   void onInit() {
-    getLanguages();
     selectedLanguages.value = user.languages
         .map((LanguageModel language) => language.copy())
         .toList();
-    if (allLanguages.isEmpty) {}
+    if (allLanguages.isEmpty) {
+      getLanguages();
+    }
     super.onInit();
+  }
+
+  @override
+  void saveData() => user.languages = selectedLanguages;
+
+  @override
+  void initData() {
+    selectedLanguages.value = user.languages
+        .map((LanguageModel language) => language.copy())
+        .toList();
   }
 
   Future<void> getLanguages() async {

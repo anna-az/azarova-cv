@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../colors-set/colors-set.dart';
-import '../colors-set/colors-set.interface.dart';
+import '../color/colors-set.dart';
+import '../color/colors-set.interface.dart';
 import 'theme-colors.dart';
 
 mixin ThemeHelper {

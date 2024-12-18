@@ -21,6 +21,8 @@ import '../../screens/profile/detailed-info/widgets/apps/apps.translation.dart'
     as apps;
 import '../../screens/profile/detailed-info/widgets/apps/edit-app-popup/edit-app-popup.translation.dart'
     as edit_app;
+import '../../screens/profile/detailed-info/detailed-info.translation.dart'
+    as detailed_info;
 
 class AppTranslation extends GetxService {
   Map<String, Map<String, String>> translationsKeys =
@@ -46,6 +48,7 @@ class AppTranslation extends GetxService {
     _combineTranslations(popup.en, popup.uk);
     _combineTranslations(apps.en, apps.uk);
     _combineTranslations(edit_app.en, edit_app.uk);
+    _combineTranslations(detailed_info.en, detailed_info.uk);
     return translationsKeys;
   }
 }

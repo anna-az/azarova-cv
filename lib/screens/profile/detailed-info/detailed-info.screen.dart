@@ -23,28 +23,37 @@ class DetailedInfoScreen extends GetView<DetailedInfoController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => DetailedInfoController(Get.find()));
-    return UnfocusWrapper(
-      Scaffold(
-          appBar: AppBarWidget(
-              title: title.tr,
-              actions: <Widget>[
-                InkWell(
-                  onTap: controller.changeIsEdit,
-                  child: Padding(
-                    padding: EdgeInsets.all(Insets.regular),
-                    child: Obx(
-                      () => IconWidget(
-                          controller.isEdit.value
-                              ? ImageAsset.cross
-                              : ImageAsset.edit,
-                          color: context.themeColors.dark2,
-                          width: 20),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, dynamic result) async {
+        if (didPop) {
+          return;
+        }
+        await controller.onBackTap();
+      },
+      child: UnfocusWrapper(
+        Scaffold(
+            appBar: AppBarWidget(
+                title: title.tr,
+                actions: <Widget>[
+                  InkWell(
+                    onTap: controller.changeIsEdit,
+                    child: Padding(
+                      padding: EdgeInsets.all(Insets.regular),
+                      child: Obx(
+                        () => IconWidget(
+                            controller.isEdit.value
+                                ? ImageAsset.cross
+                                : ImageAsset.edit,
+                            color: context.themeColors.dark2,
+                            width: 20),
+                      ),
                     ),
                   ),
-                ),
-              ],
-              onBackTap: controller.onBackTap),
-          body: Padding(padding: EdgeInsets.all(Insets.xxl), child: child)),
+                ],
+                onBackTap: controller.onBackTap),
+            body: Padding(padding: EdgeInsets.all(Insets.xxl), child: child)),
+      ),
     );
   }
 }

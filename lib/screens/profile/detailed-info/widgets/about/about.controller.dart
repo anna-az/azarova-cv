@@ -10,8 +10,7 @@ class AboutController extends DetailedInfoController {
   final TextEditingController aboutController = TextEditingController(text: '');
 
   @override
-  void onInit() {
-    aboutController.text = user.about;
-    super.onInit();
-  }
+  void saveData() => user.about = aboutController.text;
+  @override
+  void initData() => aboutController.text = user.about;
 }
