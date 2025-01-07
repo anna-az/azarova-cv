@@ -13,6 +13,8 @@ import '../../screens/profile/detailed-info/widgets/apps/store-webview/store-web
 import '../../screens/profile/detailed-info/widgets/apps/store-webview/store-webview.screen.dart';
 import '../../screens/profile/detailed-info/widgets/contacts/contacts.binding.dart';
 import '../../screens/profile/detailed-info/widgets/contacts/contacts.widget.dart';
+import '../../screens/profile/detailed-info/widgets/experience/experience.binding.dart';
+import '../../screens/profile/detailed-info/widgets/experience/experience.widget.dart';
 import '../../screens/profile/detailed-info/widgets/languages/languages.binding.dart';
 import '../../screens/profile/detailed-info/widgets/languages/languages.widget.dart';
 import '../../screens/profile/detailed-info/widgets/skills/skills.binding.dart';
@@ -31,7 +33,8 @@ enum AppRoutes {
   contacts('/contacts'),
   skills('/skills'),
   languages('/languages'),
-  stores('/stores');
+  stores('/stores'),
+  experience('/experience');
 
   const AppRoutes(this.url);
   final String url;
@@ -78,6 +81,17 @@ enum AppRoutes {
               page: () => const DetailedInfoScreen(
                   title: ProfileTranslationNames.stores, child: AppsWidget()),
               binding: AppsBinding()),
+          GetPage<void>(
+              name: AppRoutes.stores.url,
+              page: () => const DetailedInfoScreen(
+                  title: ProfileTranslationNames.stores, child: AppsWidget()),
+              binding: AppsBinding()),
+          GetPage<void>(
+              name: AppRoutes.experience.url,
+              page: () => const DetailedInfoScreen(
+                  title: ProfileTranslationNames.work,
+                  child: ExperienceWidget()),
+              binding: ExperienceBinding()),
         ]),
   ];
 }

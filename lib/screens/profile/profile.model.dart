@@ -1,6 +1,7 @@
 // Project imports:
 import 'detailed-info/widgets/apps/app.model.dart';
 import 'detailed-info/widgets/contacts/contacts.model.dart';
+import 'detailed-info/widgets/experience/experience.model.dart';
 import 'detailed-info/widgets/languages/language/language.model.dart';
 
 class ProfileModel {
@@ -13,6 +14,7 @@ class ProfileModel {
     required this.skills,
     required this.languages,
     required this.apps,
+    required this.professionalExperience,
   });
   String avatar;
   String firstName;
@@ -22,4 +24,5 @@ class ProfileModel {
   List<String> skills;
   List<LanguageModel> languages;
   List<AppModel> apps;
+  List<ExperienceModel> professionalExperience;
 }

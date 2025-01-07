@@ -1,16 +1,62 @@
-# anna_azarova_cv
+# Anna Azarova CV
 
-A new Flutter project.
+🚧 Project in Progress 🚧
 
-## Getting Started
+This project is currently under development as part of my portfolio.
 
-This project is a starting point for a Flutter application.
+Flutter version: 3.27
 
-A few resources to get you started if this is your first Flutter project:
+## Run project
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+# dev
+$ flutter run --flavor dev -t lib/main-dev.dart
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# prod
+$ flutter run --flavor prod -t lib/main-prod.dart
+```
+
+## Build
+
+```bash
+# debug mode ios dev
+$ flutter build ios --debug --flavor dev -t lib/main-dev.dart
+
+# debug mode ios prod
+$ flutter build ios --debug --flavor prod -t lib/main-prod.dart
+
+# debug mode android dev
+$ flutter build apk --debug --flavor dev -t lib/main-dev.dart
+
+# debug mode android prod
+$ flutter build apk --debug --flavor prod -t lib/main-prod.dart
+
+# release mode ios dev
+$ flutter build ios --release --flavor dev -t lib/main-dev.dart
+
+# release mode ios prod
+$ flutter build ios --release --flavor prod -t lib/main-prod.dart
+
+# release mode android dev (works only via CI/CD)
+$ flutter build apk --release --flavor dev -t lib/main-dev.dart
+
+# release mode android prod (works only via CI/CD)
+$ flutter build apk --release --flavor prod -t lib/main-prod.dart
+```
+
+## Commitlint
+
+Commitlint checks if your commit messages meet the [conventional commit format](https://conventionalcommits.org/).
+
+In general the pattern looks like this:
+
+`type(scope): subject`
+
+Common types can be:
+`build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`.
+
+Setup hooks:
+
+```
+chmod +x .github/scripts/* && .github/scripts/setup_hooks.sh
+```

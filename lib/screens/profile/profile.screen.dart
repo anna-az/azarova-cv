@@ -79,6 +79,7 @@ class ProfileScreen extends GetView<ProfileController> {
                 ProfileSectionTileWidget(
                   title: ProfileTranslationNames.work.tr,
                   icon: ImageAsset.work,
+                  onTap: () => controller.navigate(AppRoutes.experience),
                 ),
                 ProfileSectionTileWidget(
                   title: ProfileTranslationNames.education.tr,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 // Project imports:
 import '../../common/api/exceptions/exceptions.translation.dart' as exceptions;
+import '../../common/date/date.translation.dart' as date;
 import '../../common/widgets/settings/settings.translations.dart' as settings;
 import '../../screens/profile/profile.translation.dart' as profile;
 import '../widgets/popups/popup.translation.dart' as popup;
@@ -49,6 +50,7 @@ class AppTranslation extends GetxService {
     _combineTranslations(apps.en, apps.uk);
     _combineTranslations(edit_app.en, edit_app.uk);
     _combineTranslations(detailed_info.en, detailed_info.uk);
+    _combineTranslations(date.en, date.uk);
     return translationsKeys;
   }
 }
