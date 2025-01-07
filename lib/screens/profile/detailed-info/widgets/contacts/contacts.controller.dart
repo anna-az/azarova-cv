@@ -11,13 +11,18 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 // Project imports:
 import '../../../../../common/app-translation/translation.extensions.dart';
+import '../../../../../common/base/initial-vaules.dart';
 import '../../../../../common/widgets/toast/toast.service.dart';
 import '../../detailed-info.controller.dart';
+import 'contacts.model.dart';
+import 'contacts.service.dart';
 import 'contacts.translation.dart';
 import 'phone/phone.model.dart';
 
 class ContactsController extends DetailedInfoController {
-  ContactsController(super.detailedInfoService, this._toastService);
+  ContactsController(
+      super.detailedInfoService, this._contactsService, this._toastService);
+  final ContactsService _contactsService;
   final ToastService _toastService;
 
   final List<Map<String, String>> countryCodes = <Map<String, String>>[
@@ -33,7 +38,7 @@ class ContactsController extends DetailedInfoController {
       TextEditingController(text: '');
 
   late MaskTextInputFormatter maskFormatter = MaskTextInputFormatter(
-      initialText: user.contacts.phone.phone,
+      initialText: user.contacts.phone.phoneNumber,
       mask: '(###) ###-####',
       filter: <String, RegExp>{'#': RegExp(r'[0-9]')});
 
@@ -49,18 +54,21 @@ class ContactsController extends DetailedInfoController {
   void saveData() {
     maskFormatter.formatEditUpdate(
         phoneController.value, phoneController.value);
-    user.contacts.phone =
-        PhoneModel(phone: maskFormatter.getUnmaskedText(), countyCode: code);
-    user.contacts.email = emailController.text;
-    user.contacts.location = locationController.text;
+    _contactsService.cacheItem(ContactsModel(
+        phone: PhoneModel(
+            phoneNumber: maskFormatter.getUnmaskedText(), countyCode: code),
+        email: emailController.text,
+        location: locationController.text));
   }
 
   @override
   void initData() {
-    phoneController.text = maskFormatter.maskText(user.contacts.phone.phone);
-    emailController.text = user.contacts.email;
-    locationController.text = user.contacts.location;
-    countryCode = user.contacts.phone.countyCode;
+    final ContactsModel contacts =
+        _contactsService.getItem() ?? InitialValues.contacts;
+    phoneController.text = maskFormatter.maskText(contacts.phone.phoneNumber);
+    emailController.text = contacts.email;
+    locationController.text = contacts.location;
+    countryCode = contacts.phone.countyCode;
   }
 
   void onCodeChanged(CountryCode countryCode) {

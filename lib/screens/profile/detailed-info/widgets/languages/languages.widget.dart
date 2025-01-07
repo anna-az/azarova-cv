@@ -36,40 +36,42 @@ class LanguagesWidget extends GetView<LanguagesController> {
         ),
       );
 
-  Widget _buildEditedLanguage(LanguageModel language) {
-    final int index = controller.selectedLanguages.indexOf(language);
-    return Row(
-      children: <Widget>[
-        IgnorePointer(
-          ignoring: !controller.isEdit.value,
-          child: DropdownWidget<String>(
-              value: language.language,
-              items: controller.allLanguages,
-              onChange: (String? value) => controller.isEdit.value
-                  ? controller.onLanguageChange(index, value)
-                  : null),
-        ),
-        HSpace.lg,
-        const Text('-'),
-        HSpace.lg,
-        IgnorePointer(
-          ignoring: !controller.isEdit.value,
-          child: DropdownWidget<LanguageLevel>(
-              value: language.level,
-              items: LanguageLevel.values,
-              onChange: (LanguageLevel? value) => controller.isEdit.value
-                  ? controller.onLevelChange(index, value)
-                  : null),
-        ),
-        HSpace.lg,
-        RxConditionalControlWidget(
-            condition: controller.isEdit,
-            child: InkWell(
-              onTap: () => controller.deleteLanguage(language),
-              child: IconWidget(ImageAsset.cross,
-                  width: Insets.large, color: Get.context!.themeColors.dark3),
-            ))
-      ],
-    );
-  }
+  Widget _buildEditedLanguage(LanguageModel language) => Row(
+        children: <Widget>[
+          Flexible(
+            flex: 2,
+            child: IgnorePointer(
+              ignoring: !controller.isEdit.value,
+              child: DropdownWidget<String>(
+                  value: language.language,
+                  items: controller.allLanguages,
+                  onChange: (String? value) => controller.isEdit.value
+                      ? controller.onLanguageChange(language.id, value)
+                      : null),
+            ),
+          ),
+          HSpace.lg,
+          const Text('-'),
+          HSpace.lg,
+          Flexible(
+            child: IgnorePointer(
+              ignoring: !controller.isEdit.value,
+              child: DropdownWidget<LanguageLevel>(
+                  value: language.level,
+                  items: LanguageLevel.values,
+                  onChange: (LanguageLevel? value) => controller.isEdit.value
+                      ? controller.onLevelChange(language.id, value)
+                      : null),
+            ),
+          ),
+          HSpace.lg,
+          RxConditionalControlWidget(
+              condition: controller.isEdit,
+              child: InkWell(
+                onTap: () => controller.deleteLanguage(language.id),
+                child: IconWidget(ImageAsset.cross,
+                    width: Insets.large, color: Get.context!.themeColors.dark3),
+              ))
+        ],
+      );
 }

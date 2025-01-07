@@ -12,6 +12,7 @@ import '../../../../../common/theme/theme-colors.dart';
 import '../../../../../common/theme/theme.extensions.dart';
 import '../../../../../common/widgets/conditional-control/rx-conditional-control.widget.dart';
 import '../../../../../common/widgets/icon/icon.widget.dart';
+import 'skill.model.dart';
 import 'skills.controller.dart';
 
 class SkillsWidget extends GetView<SkillsController> {
@@ -28,7 +29,8 @@ class SkillsWidget extends GetView<SkillsController> {
                   ...controller.skills.map(_buildSkill),
                   RxConditionalControlWidget(
                     condition: controller.isEdit,
-                    child: _buildSkill('+', isAdd: true),
+                    child:
+                        _buildSkill(SkillModel(id: 0, name: '+'), isAdd: true),
                   )
                 ],
               ),
@@ -37,7 +39,7 @@ class SkillsWidget extends GetView<SkillsController> {
         ),
       );
 
-  Widget _buildSkill(String skill, {bool isAdd = false}) {
+  Widget _buildSkill(SkillModel skill, {bool isAdd = false}) {
     final ThemeColorsExtension themeColors = Get.context!.themeColors;
     return Stack(
       children: <Widget>[
@@ -55,7 +57,7 @@ class SkillsWidget extends GetView<SkillsController> {
               decoration: BoxDecoration(
                   color: isAdd ? themeColors.secondary : themeColors.blue,
                   borderRadius: BorderRadius.circular(Insets.large)),
-              child: Text(skill,
+              child: Text(skill.name,
                   textAlign: TextAlign.center,
                   style: const TextStyle().stroke.mediumSize.regularWeight)),
         ),
@@ -66,7 +68,7 @@ class SkillsWidget extends GetView<SkillsController> {
                   right: 0,
                   top: 0,
                   child: InkWell(
-                    onTap: () => controller.deleteSkill(skill),
+                    onTap: () => controller.deleteSkill(skill.id),
                     child: Container(
                       padding: EdgeInsets.all(Insets.s),
                       decoration: BoxDecoration(

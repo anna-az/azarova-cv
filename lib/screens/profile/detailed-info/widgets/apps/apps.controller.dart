@@ -5,26 +5,30 @@ import 'dart:async';
 import 'package:get/get.dart';
 
 // Project imports:
+import '../../../../../common/base/initial-vaules.dart';
 import '../../../../../common/base/routes.dart';
 import '../../../../../common/dialog/dialog.service.dart';
 import '../../../../../common/navigation/navigation.service.dart';
 import '../../detailed-info.controller.dart';
 import 'app.model.dart';
+import 'apps.service.dart';
 import 'edit-app-popup/edit-app-popup.widget.dart';
 import 'stores/stores.enum.dart';
 
 class AppsController extends DetailedInfoController {
-  AppsController(
-      super.detailedInfoService, this._navigationService, this._dialogService);
+  AppsController(super.detailedInfoService, this._appService,
+      this._navigationService, this._dialogService);
+  final AppsService _appService;
   final NavigationService _navigationService;
   final DialogService _dialogService;
 
   final RxList<AppModel> apps = <AppModel>[].obs;
 
   @override
-  void saveData() => user.apps = apps;
+  void saveData() => _appService.cacheList(apps);
   @override
-  void initData() => apps.value = user.apps;
+  void initData() => apps.value =
+      _appService.items.isNotEmpty ? _appService.items : InitialValues.apps;
 
   void openStore(String title, String url, Store store) {
     _navigationService.to(AppRoutes.webview,

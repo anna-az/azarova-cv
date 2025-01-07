@@ -4,7 +4,8 @@ enum LanguageLevel {
   b1('B1'),
   b2('B2'),
   c1('C1'),
-  c2('C2');
+  c2('C2'),
+  native('Native');
 
   const LanguageLevel(this.text);
   final String text;

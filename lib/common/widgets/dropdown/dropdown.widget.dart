@@ -25,6 +25,7 @@ class DropdownWidget<T> extends StatelessWidget {
         elevation: 2,
         value: value,
         menuWidth: 200,
+        isExpanded: true,
         items: items.map((T item) => _buildDropdownItem<T>(item)).toList(),
         onChanged: onChange,
         underline: const SizedBox(),
@@ -44,8 +45,7 @@ class DropdownWidget<T> extends StatelessWidget {
     }
     return DropdownMenuItem<U>(
       value: item,
-      child: ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 200), child: title),
+      child: title,
     );
   }
 }

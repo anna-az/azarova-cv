@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'common/api/api.service.dart';
 import 'common/app-translation/app.translation.dart';
 import 'common/dialog/dialog.service.dart';
+import 'common/hive/hive.service.dart';
 import 'common/navigation/navigation.service.dart';
 import 'common/shared-preferences/shared-preferences.service.dart';
 import 'common/widgets/app-bar/app-bar.controller.dart';
@@ -17,6 +18,7 @@ class MainBinding implements Bindings {
   @override
   Future<void> dependencies() async {
     await Get.putAsync(() => SharedPreferencesService().init());
+    await Get.putAsync(() => HiveService().init());
     Get
       ..lazyPut(AppTranslation.new)
       ..lazyPut(SettingsDrawerService.new)

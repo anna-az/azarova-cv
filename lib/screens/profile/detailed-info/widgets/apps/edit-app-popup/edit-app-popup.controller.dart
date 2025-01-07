@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 
 // Package imports:
 import 'package:get/get.dart';
+import 'package:uuid/uuid.dart';
 
 // Project imports:
 import '../../../../../../common/api/exceptions/allowed.exception.dart';
@@ -42,8 +43,10 @@ class EditAppController extends GetxController {
     if (googlePlayController.text.isEmpty && appStoreController.text.isEmpty) {
       throw AllowedException(EditAppPopupTranslationNames.atLeastOneStore.tr);
     }
+
     _navigationService.back(
         result: AppModel(
+            id: app?.id ?? const Uuid().v4().hashCode,
             title: appNameController.text,
             appStoreUrl: appStoreController.text,
             googlePlayId: googlePlayController.text));

@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
+import '../../../../../common/hive/hive.boxes.dart';
 import '../../detailed-info.controller.dart';
 
 class AboutController extends DetailedInfoController {
@@ -10,7 +11,11 @@ class AboutController extends DetailedInfoController {
   final TextEditingController aboutController = TextEditingController(text: '');
 
   @override
-  void saveData() => user.about = aboutController.text;
+  HiveBoxes box = HiveBoxes.about;
+  // @override
+  // void saveData() => saveToDatabase<String>(aboutController.text);
+  // @override
+  // void saveData() => user.about = aboutController.text;
   @override
   void initData() => aboutController.text = user.about;
 }

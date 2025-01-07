@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // Project imports:
+import '../../../common/hive/hive.boxes.dart';
+import '../../../common/json-serializable/json-serializable-with-id.interface.dart';
 import '../profile.model.dart';
 import 'detailed-info.service.dart';
 
@@ -22,6 +24,7 @@ class DetailedInfoController extends GetxController {
 
   final GlobalKey<FormState> formKey;
   Stream<Completer<bool>> get onSave => _detailedInfoService.onSave;
+  HiveBoxes box = HiveBoxes.about;
 
   @override
   void onInit() {
@@ -62,6 +65,14 @@ class DetailedInfoController extends GetxController {
 
   void saveData() {}
   void initData() {}
+
+  int generateNewId<T extends IJsonSerializableWithId>(List<T> items) =>
+      items.isNotEmpty
+          ? (items
+                  .map((T item) => item.id)
+                  .reduce((int a, int b) => a > b ? a : b) +
+              1)
+          : 1;
 
   Future<void> onBackTap() async {
     if (isEdit.value) {

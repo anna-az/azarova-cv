@@ -2,22 +2,25 @@
 import 'package:get/get.dart';
 
 // Project imports:
+import '../../../../../common/base/initial-vaules.dart';
 import '../../detailed-info.controller.dart';
 import 'experience.model.dart';
+import 'experience.service.dart';
 
 class ExperienceController extends DetailedInfoController {
-  ExperienceController(super.detailedInfoService);
+  ExperienceController(super.detailedInfoService, this._experienceService);
+  final ExperienceService _experienceService;
 
   final RxList<ExperienceModel> professionalExperience =
       <ExperienceModel>[].obs;
 
   @override
-  void saveData() => user.professionalExperience = professionalExperience;
+  void saveData() => _experienceService.cacheList(professionalExperience);
 
   @override
   void initData() {
-    professionalExperience.value = user.professionalExperience
-        .map((ExperienceModel experience) => experience.copy())
-        .toList();
+    professionalExperience.value = _experienceService.items.isNotEmpty
+        ? _experienceService.items
+        : InitialValues.professionalExperience;
   }
 }
